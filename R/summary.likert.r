@@ -92,7 +92,7 @@ summary.likert <- function(object, center=(object$nlevels-1)/2 + 1,
 		highrange <- ceiling(center + 0.5) : nlevels
 		if(!is.null(object$grouping)) { #Grouping
 			results2 = data.frame(Group=rep(unique(results$Group), each=ncol(items)),
-								  Item=rep(names(items), length(unique(results$Group))), 
+								  Item=factor(rep(names(items), length(unique(results$Group))), levels = names(object$items)), 
 								  low=rep(NA, ncol(items) * length(unique(results$Group))), 
 								  neutral=rep(NA, ncol(items) * length(unique(results$Group))),
 								  high=rep(NA, ncol(items) * length(unique(results$Group))),
