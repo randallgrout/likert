@@ -113,7 +113,7 @@ likert.bar.plot <- function(l,
 		results <- l$results
 		results <- reshape2::melt(results, id=c('Group', 'Item'))
 		results$variable <- factor(results$variable, ordered=TRUE)
-		if(TRUE | is.null(l$items)) {
+		if(is.null(l$items)) {
 			results$Item <- factor(as.character(results$Item),
 								   levels=unique(results$Item),
 								   labels=label_wrap_mod(
