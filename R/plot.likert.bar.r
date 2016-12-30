@@ -109,7 +109,6 @@ likert.bar.plot <- function(l,
 		l$results$Item <- label_wrap_mod(l$results$Item, width=wrap)
 		#names(l$items) <- label_wrap_mod(names(l$items), width=wrap)
 		lsum$Group <- label_wrap_mod(lsum$Group, width=wrap.grouping)
-		
 		results <- l$results
 		results <- reshape2::melt(results, id=c('Group', 'Item'))
 		results$variable <- factor(results$variable, ordered=TRUE)
@@ -206,6 +205,8 @@ likert.bar.plot <- function(l,
 			theme(axis.ticks=element_blank(), 
 				  strip.background=element_rect(fill=panel.strip.color, 
 				  							    color=panel.strip.color))
+		p$results <- factor(p$results, levels = levels(results$Item))
+		
 		if(is.null(panel.arrange)) {
 			p <- p + facet_wrap(~ Item)
 		} else if(panel.arrange == 'v') {
