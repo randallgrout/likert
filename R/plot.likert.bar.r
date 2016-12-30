@@ -205,7 +205,7 @@ likert.bar.plot <- function(l,
 			theme(axis.ticks=element_blank(), 
 				  strip.background=element_rect(fill=panel.strip.color, 
 				  							    color=panel.strip.color))
-		p$results <- factor(p$results, levels = levels(results$Item))
+		p$results <- factor(p$results, levels = names(l$items))
 		
 		if(is.null(panel.arrange)) {
 			p <- p + facet_wrap(~ Item)
