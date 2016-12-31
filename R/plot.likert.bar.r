@@ -210,7 +210,7 @@ likert.bar.plot <- function(l,
 		if(is.null(panel.arrange)) {
 			p <- p + facet_wrap(~ Item)
 		} else if(panel.arrange == 'v') {
-			p <- p + facet_wrap(~ Item, ncol=1)
+			p <- p + facet_wrap(~ fct_rev(Item), ncol=1)
 			#p <- p + facet_grid(Item ~ .)
 		} else if(panel.arrange == 'h') {
 			p <- p + facet_wrap(~ Item, nrow=1)
